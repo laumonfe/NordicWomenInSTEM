@@ -6,6 +6,150 @@ import matplotlib.pyplot as plt
 from scipy.spatial import ConvexHull
 
 
+
+
+
+
+
+
+def create_new_color(red, green, blue):
+    plt.imshow([[(red, green, blue)]])
+    plt.axis("off")
+    plt.show()
+
+
+def create_yellow(red = 255, green = 255, blue=255):
+    fontsize = 20 
+    f, ax = plt.subplots(1,2, figsize=(5,2))
+    f.suptitle("Can you make yellow?")
+    r = 255
+    g = 255
+    b = 0
+    ax[0].imshow([[(r, g, b)]])
+    plt.setp(ax[0].get_xticklabels(), visible=False)
+    plt.setp(ax[0].get_yticklabels(), visible=False)
+    ax[0].tick_params(axis='both', which='both', length=0)
+    
+    ax[1].imshow([[(red, green, blue)]])
+    plt.setp(ax[1].get_xticklabels(), visible=False)
+    plt.setp(ax[1].get_yticklabels(), visible=False)
+    ax[1].tick_params(axis='both', which='both', length=0)
+    plt.show()
+
+    if (red == r and green== g and blue == b):
+        congrats = plt.imread("images\congratulations.jpg")
+        plt.imshow(congrats)
+        plt.title("Wow, perfect! You got the exact color!")
+        plt.axis('off')
+        plt.show()
+
+def create_light_blue(red = 255, green = 255, blue=255):
+    fontsize = 20 
+    f, ax = plt.subplots(1,2, figsize=(5,2))
+    f.suptitle("Can you make light blue?")
+    r = 0
+    g = 255
+    b = 255
+    ax[0].imshow([[(r, g, b)]])
+    plt.setp(ax[0].get_xticklabels(), visible=False)
+    plt.setp(ax[0].get_yticklabels(), visible=False)
+    ax[0].tick_params(axis='both', which='both', length=0)
+    
+    ax[1].imshow([[(red, green, blue)]])
+    plt.setp(ax[1].get_xticklabels(), visible=False)
+    plt.setp(ax[1].get_yticklabels(), visible=False)
+    ax[1].tick_params(axis='both', which='both', length=0)
+    plt.show()
+
+    if (red == r and green== g and blue == b):
+        congrats = plt.imread("images\congratulations.jpg")
+        plt.imshow(congrats)
+        plt.title("Wow, perfect! You got the exact color!")
+        plt.axis('off')
+        plt.show()
+
+def create_purple(red = 255, green = 255, blue=255):
+    fontsize = 20 
+    f, ax = plt.subplots(1,2, figsize=(5,2))
+
+    f.suptitle("Can you make purple?")
+    r = 90
+    g = 0
+    b = 90
+    ax[0].imshow([[(r, g, b)]])
+    plt.setp(ax[0].get_xticklabels(), visible=False)
+    plt.setp(ax[0].get_yticklabels(), visible=False)
+    ax[0].tick_params(axis='both', which='both', length=0)
+    
+    ax[1].imshow([[(red, green, blue)]])
+    plt.setp(ax[1].get_xticklabels(), visible=False)
+    plt.setp(ax[1].get_yticklabels(), visible=False)
+    ax[1].tick_params(axis='both', which='both', length=0)
+    plt.show()
+
+    if (red == r and green== g and blue == b):
+        congrats = plt.imread("images\congratulations.jpg")
+        plt.imshow(congrats)
+        plt.title("Wow, perfect! You got the exact color!")
+        plt.axis('off')
+        plt.show()
+
+
+def create_orange(red = 255, green = 255, blue=255):
+    fontsize = 20 
+    f, ax = plt.subplots(1,2, figsize=(5,2))
+
+    f.suptitle("Can you make orange?")
+    r = 230
+    g = 130
+    b = 30
+    ax[0].imshow([[(r, g, b)]])
+    plt.setp(ax[0].get_xticklabels(), visible=False)
+    plt.setp(ax[0].get_yticklabels(), visible=False)
+    ax[0].tick_params(axis='both', which='both', length=0)
+    
+    ax[1].imshow([[(red, green, blue)]])
+    plt.setp(ax[1].get_xticklabels(), visible=False)
+    plt.setp(ax[1].get_yticklabels(), visible=False)
+    ax[1].tick_params(axis='both', which='both', length=0)
+    plt.show()
+
+    if (red == r and green== g and blue == b):
+        congrats = plt.imread("images\congratulations.jpg")
+        plt.imshow(congrats)
+        plt.title("Wow, perfect! You got the exact color!")
+        plt.axis('off')
+        plt.show()
+
+def create_black(red = 255, green = 255, blue=255):
+    fontsize = 20 
+    f, ax = plt.subplots(1,2, figsize=(5,2))
+    f.suptitle("Can you make black?")
+    r = 0
+    g = 0
+    b = 0
+    ax[0].imshow([[(r, g, b)]])
+    plt.setp(ax[0].get_xticklabels(), visible=False)
+    plt.setp(ax[0].get_yticklabels(), visible=False)
+    ax[0].tick_params(axis='both', which='both', length=0)
+    
+    ax[1].imshow([[(red, green, blue)]])
+    plt.setp(ax[1].get_xticklabels(), visible=False)
+    plt.setp(ax[1].get_yticklabels(), visible=False)
+    ax[1].tick_params(axis='both', which='both', length=0)
+    plt.show()
+
+    if (red == r and green== g and blue == b):
+        congrats = plt.imread("images\congratulations.jpg")
+        plt.imshow(congrats)
+        plt.title("Wow, perfect! You got the exact color!")
+        plt.axis('off')
+        plt.show()
+
+
+
+
+
 def plot_matrix_as_image(matrix): 
     plt.figure(figsize = (16,16))
     ax = sns.heatmap(matrix.astype(int), annot=True,cmap='gray',fmt="d")
