@@ -111,7 +111,7 @@ def before_and_after(img, t_image):
     ax[1].axis("off")
 
 
-def plot_points(points, newpoints):
+def plot_points(points, newpoints, target_color):
     hull = ConvexHull(points)
     newhull = ConvexHull(newpoints)
 
@@ -125,9 +125,9 @@ def plot_points(points, newpoints):
         ax.plot(newpoints[simplex, 0], newpoints[simplex, 1], 'b', alpha=0.3)
         ax.plot(points[simplex, 0], points[simplex, 1], 'y', alpha=0.3)
     ax.fill(points[hull.vertices, 0], points[hull.vertices, 1],
-            color='y', label="original")
+            color=target_color, label="GOAL")
     ax.fill(newpoints[newhull.vertices, 0], newpoints[newhull.vertices,
-            1], color='b', label="transformed", alpha=0.3)
+            1], color='b', label="Your square", alpha=0.3)
     maxAxis = np.maximum(xRange.max(), yRange.max())
     plt.ylim((maxAxis*-1)-1, maxAxis+1)
     plt.xlim((maxAxis*-1)-1, maxAxis+1)
@@ -137,3 +137,34 @@ def plot_points(points, newpoints):
                                                       )+1, colors='gray', linestyles='--', lw=0.5)
     plt.legend(loc="upper right")
     plt.show()
+
+
+
+def move_square(M = np.float32([[1, 0, 0],
+                                [0, 1, 0],
+                                [0, 0, 1]]), target= np.array([[0, 0], [0, 1], [1, 1], [1, 0]]),
+                                             target_color="y"):
+    newpoints = []
+    points=np.array([[0, 0], [0, 1], [1, 1], [1, 0]])
+    for point in points:
+        newx = M[0,0] * point[0] + M[0,1] * point[1] + M[0,2]
+        newy = M[1,0] * point[0] + M[1,1] * point[1] + M[1,2]
+        newpoints.append([newx, newy])
+
+    newpoints = np.array(newpoints)
+    plot_points(target, newpoints, target_color)
+
+
+def excercise1(M): 
+    target = np.array([[0, 0], [0, 3], [2, 3], [2, 0]])
+    move_square(M, target, target_color='tomato')
+
+
+def excercise2(M): 
+    target = np.array([[-3, -3], [-2, -3], [-3, -2], [-2, -2]])
+    move_square(M, target, target_color='limegreen')
+
+
+def excercise3(M): 
+    target = np.array([[2, -3], [6, -3], [2, -5], [6, -5]])
+    move_square(M, target, target_color='gold')
