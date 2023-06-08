@@ -1,5 +1,3 @@
-
-
 import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
@@ -132,39 +130,38 @@ def plot_points(points, newpoints, target_color):
     plt.ylim((maxAxis*-1)-1, maxAxis+1)
     plt.xlim((maxAxis*-1)-1, maxAxis+1)
     plt.hlines(y=0, xmin=(maxAxis*-1)-1, xmax=(maxAxis
-                                                      )+1, colors='gray', linestyles='--', lw=0.5)
+                                               )+1, colors='gray', linestyles='--', lw=0.5)
     plt.vlines(x=0, ymin=(maxAxis*-1)-1, ymax=(maxAxis
-                                                      )+1, colors='gray', linestyles='--', lw=0.5)
+                                               )+1, colors='gray', linestyles='--', lw=0.5)
     plt.legend(loc="upper right")
     plt.show()
 
 
-
-def move_square(M = np.float32([[1, 0, 0],
-                                [0, 1, 0],
-                                [0, 0, 1]]), target= np.array([[0, 0], [0, 1], [1, 1], [1, 0]]),
-                                             target_color="y"):
+def move_square(M=np.float32([[1, 0, 0],
+                              [0, 1, 0],
+                              [0, 0, 1]]), target=np.array([[0, 0], [0, 1], [1, 1], [1, 0]]),
+                target_color="y"):
     newpoints = []
-    points=np.array([[0, 0], [0, 1], [1, 1], [1, 0]])
+    points = np.array([[0, 0], [0, 1], [1, 1], [1, 0]])
     for point in points:
-        newx = M[0,0] * point[0] + M[0,1] * point[1] + M[0,2]
-        newy = M[1,0] * point[0] + M[1,1] * point[1] + M[1,2]
+        newx = M[0, 0] * point[0] + M[0, 1] * point[1] + M[0, 2]
+        newy = M[1, 0] * point[0] + M[1, 1] * point[1] + M[1, 2]
         newpoints.append([newx, newy])
 
     newpoints = np.array(newpoints)
     plot_points(target, newpoints, target_color)
 
 
-def excercise1(M): 
+def excercise1(M):
     target = np.array([[0, 0], [0, 3], [2, 3], [2, 0]])
     move_square(M, target, target_color='tomato')
 
 
-def excercise2(M): 
+def excercise2(M):
     target = np.array([[-3, -3], [-2, -3], [-3, -2], [-2, -2]])
     move_square(M, target, target_color='limegreen')
 
 
-def excercise3(M): 
+def excercise3(M):
     target = np.array([[2, -3], [6, -3], [2, -5], [6, -5]])
     move_square(M, target, target_color='gold')
