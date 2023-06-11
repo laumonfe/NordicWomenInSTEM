@@ -1,3 +1,4 @@
+import cv2
 import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
@@ -9,15 +10,15 @@ def show_img(img_type):
         path2 = "/content/NordicWomenInSTEM/images/Width.png"
     else:
         path1 = "/content/NordicWomenInSTEM/images/moveX.png"
-        path2 = "/content/NordicWomenInSTEM/images/moveY.png"
+        path2 = "/content/NordicWomenInSTEM/images/MoveY.png"
 
-    f, ax = plt.subplots(2, 1, figsize=(5, 5))
-    f.suptitle("From black and white to color")
-
-    ax[0].imread(path1)
+    img1 = cv2.imread(path1)
+    img2 = cv2.imread(path2)
+    f, ax = plt.subplots(2, 1, figsize=(15, 10))
+    ax[0].imshow(img1[:, :, ::-1])
     ax[0].axis("off")
 
-    ax[1].imread(path2)
+    ax[1].imshow(img2[:, :, ::-1])
     ax[1].axis("off")
 
 def create_new_color(red, green, blue):
