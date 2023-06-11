@@ -7,7 +7,7 @@ def show_img(img_type):
     if img_type == "scale":
         path1 = "/content/NordicWomenInSTEM/images/Height.png"
         path2 = "/content/NordicWomenInSTEM/images/Width.png"
-     else:
+    else:
         path1 = "/content/NordicWomenInSTEM/images/moveX.png"
         path2 = "/content/NordicWomenInSTEM/images/moveY.png"
 
