@@ -10,7 +10,7 @@ def show_img(img_type):
         path2 = "/content/NordicWomenInSTEM/images/Width.png"
     else:
         path1 = "/content/NordicWomenInSTEM/images/moveX.png"
-        path2 = "/content/NordicWomenInSTEM/images/MoveY.png"
+        path2 = "/content/NordicWomenInSTEM/images/moveY.png"
 
     img1 = cv2.imread(path1)
     img2 = cv2.imread(path2)
