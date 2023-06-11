@@ -3,6 +3,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.spatial import ConvexHull
 
+def show_img(type): 
+    if type == "scale":
+        path1 = "/content/NordicWomenInSTEM/images/Height.png"
+        path2 = "/content/NordicWomenInSTEM/images/Width.png"
+     if type == "translate"
+        path1 = "/content/NordicWomenInSTEM/images/moveX.png"
+        path2 = "/content/NordicWomenInSTEM/images/moveY.png"
+    f, ax = plt.subplots(2, 1, figsize=(5, 5))
+    f.suptitle("From black and white to color")
+
+    ax[0].imread(path1)
+    ax[0].axis("off")
+
+    ax[1].imread(path2)
+    ax[1].axis("off")
 
 def create_new_color(red, green, blue):
     plt.imshow([[(red, green, blue)]])
