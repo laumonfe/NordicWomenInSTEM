@@ -7,7 +7,7 @@ def show_img(type):
     if type == "scale":
         path1 = "/content/NordicWomenInSTEM/images/Height.png"
         path2 = "/content/NordicWomenInSTEM/images/Width.png"
-     if type == "translate"
+     if type == "translate":
         path1 = "/content/NordicWomenInSTEM/images/moveX.png"
         path2 = "/content/NordicWomenInSTEM/images/moveY.png"
     f, ax = plt.subplots(2, 1, figsize=(5, 5))
