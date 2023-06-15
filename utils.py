@@ -46,7 +46,7 @@ def create_color(color, targetRed, targetGreen, targetBlue, red=255, green=255, 
     plt.show()
 
     if (red == r and green == g and blue == b):
-        congrats = plt.imread("images\congratulations.jpg")
+        congrats = plt.imread("/content/NordicWomenInSTEM/images/congratulations.jpg")
         plt.imshow(congrats)
         plt.title("Wow, perfect! You got the exact color!")
         plt.axis('off')
