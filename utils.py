@@ -3,6 +3,8 @@ import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.spatial import ConvexHull
+from scipy.spatial import KDTree
+from webcolors import CSS3_HEX_TO_NAMES, hex_to_rgb
 
 def show_img(img_type): 
     if img_type == "scale":
@@ -25,6 +27,23 @@ def create_new_color(red, green, blue):
     plt.imshow([[(red, green, blue)]])
     plt.axis("off")
     plt.show()
+
+
+
+
+def convert_rgb_to_names(rgb_tuple):
+    
+    # a dictionary of all the hex and their respective names in css3
+    css3_db = CSS3_HEX_TO_NAMES
+    names = []
+    rgb_values = []
+    for color_hex, color_name in css3_db.items():
+        names.append(color_name)
+        rgb_values.append(hex_to_rgb(color_hex))
+    
+    kdt_db = KDTree(rgb_values)
+    distance, index = kdt_db.query(rgb_tuple)
+    return names[index]
 
 
 def create_color(color, targetRed, targetGreen, targetBlue, red=255, green=255, blue=255):
@@ -126,7 +145,7 @@ def before_and_after(img, t_image):
     ax[1].axis("off")
 
 
-def plot_points(points, newpoints, target_color):
+def plot_points(points, newpoints, target_color, default_color = 'b'):
     hull = ConvexHull(points)
     newhull = ConvexHull(newpoints)
 
@@ -137,12 +156,12 @@ def plot_points(points, newpoints, target_color):
     ax.plot(points[:, 0], points[:, 1], '.', color='k')
     ax.plot(newpoints[:, 0], newpoints[:, 1], '.', color='k')
     for simplex in hull.simplices:
-        ax.plot(newpoints[simplex, 0], newpoints[simplex, 1], 'b', alpha=0.3)
-        ax.plot(points[simplex, 0], points[simplex, 1], 'y', alpha=0.3)
+        ax.plot(newpoints[simplex, 0], newpoints[simplex, 1], default_color, alpha=0.3)
+        ax.plot(points[simplex, 0], points[simplex, 1], target_color, alpha=0.3)
     ax.fill(points[hull.vertices, 0], points[hull.vertices, 1],
             color=target_color, label="GOAL")
     ax.fill(newpoints[newhull.vertices, 0], newpoints[newhull.vertices,
-            1], color='b', label="Your square", alpha=0.3)
+            1], color=default_color, label="Your square", alpha=0.5)
     maxAxis = np.maximum(xRange.max(), yRange.max())
     plt.ylim((maxAxis*-1)-1, maxAxis+1)
     plt.xlim((maxAxis*-1)-1, maxAxis+1)
@@ -157,7 +176,7 @@ def plot_points(points, newpoints, target_color):
 def move_square(M=np.float32([[1, 0, 0],
                               [0, 1, 0],
                               [0, 0, 1]]), target=np.array([[0, 0], [0, 1], [1, 1], [1, 0]]),
-                target_color="y"):
+                target_color="y", default_color='b'):
     newpoints = []
     points = np.array([[0, 0], [0, 1], [1, 1], [1, 0]])
     for point in points:
@@ -166,7 +185,7 @@ def move_square(M=np.float32([[1, 0, 0],
         newpoints.append([newx, newy])
 
     newpoints = np.array(newpoints)
-    plot_points(target, newpoints, target_color)
+    plot_points(target, newpoints, target_color, default_color)
 
 
 def excercise1(M):
@@ -179,6 +198,8 @@ def excercise2(M):
     move_square(M, target, target_color='limegreen')
 
 
-def excercise3(M):
+def excercise3(M, R,G,B):
     target = np.array([[2, -3], [6, -3], [2, -5], [6, -5]])
-    move_square(M, target, target_color='gold')
+    default_color = convert_rgb_to_names((R, G, B))
+    target_yellow = convert_rgb_to_names((255, 255, 0))
+    move_square(M, target, target_color=target_yellow, default_color=default_color)
