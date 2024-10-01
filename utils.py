@@ -185,17 +185,15 @@ def move_square(M=np.float32([[1, 0, 0],
 
     newpoints = np.array(newpoints)
     plot_points(target, newpoints, target_color, default_color)
-    print("NEW", newpoints)
-    print("TARGET", target)
     if (target_color == 'tomato') or (target_color == 'limegreen'): 
-        if ((target == newpoints).all()):
+        if (np.array_equal(np.sort(target.flat), np.sort(newpoints.flat))):
             congrats = plt.imread("/content/NordicWomenInSTEM/images/congratulations.jpg")
             plt.imshow(congrats)
             plt.title("Wow, perfect!")
             plt.axis('off')
             plt.show()
         
-    if (target_color == default_color and ((target == newpoints).all())):
+    if (target_color == default_color and (np.array_equal(np.sort(target.flat), np.sort(newpoints.flat)))):
         congrats = plt.imread("/content/NordicWomenInSTEM/images/congratulations.jpg")
         plt.imshow(congrats)
         plt.title("Wow, perfect!")
