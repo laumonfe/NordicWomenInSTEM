@@ -186,7 +186,7 @@ def move_square(M=np.float32([[1, 0, 0],
     newpoints = np.array(newpoints)
     plot_points(target, newpoints, target_color, default_color)
     print("NEW", newpoints)
-    print("TARGET", taget)
+    print("TARGET", target)
     if (target_color == 'tomato') or (target_color == 'limegreen'): 
         if ((target == newpoints).all()):
             congrats = plt.imread("/content/NordicWomenInSTEM/images/congratulations.jpg")
