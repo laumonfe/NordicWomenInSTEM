@@ -186,22 +186,22 @@ def move_square(M=np.float32([[1, 0, 0],
     newpoints = np.array(newpoints)
     plot_points(target, newpoints, target_color, default_color)
     print(target_color)
-    if (target_color == 'tomato') or (target_color == 'limegreen'): 
-        print(target)
-        print(newpoints)
-        if ((target == newpoints).all()):
-            congrats = plt.imread("/content/NordicWomenInSTEM/images/congratulations.jpg")
-            plt.imshow(congrats)
-            plt.title("Wow, perfect!")
-            plt.axis('off')
-            plt.show()
+    # if (target_color == 'tomato') or (target_color == 'limegreen'): 
+    #     print(target)
+    #     print(newpoints)
+    #     if ((target == newpoints).all()):
+    #         congrats = plt.imread("/content/NordicWomenInSTEM/images/congratulations.jpg")
+    #         plt.imshow(congrats)
+    #         plt.title("Wow, perfect!")
+    #         plt.axis('off')
+    #         plt.show()
         
-    if (target_color == default_color and ((target == newpoints).all())):
-        congrats = plt.imread("/content/NordicWomenInSTEM/images/congratulations.jpg")
-        plt.imshow(congrats)
-        plt.title("Wow, perfect!")
-        plt.axis('off')
-        plt.show()
+    # if (target_color == default_color and ((target == newpoints).all())):
+    #     congrats = plt.imread("/content/NordicWomenInSTEM/images/congratulations.jpg")
+    #     plt.imshow(congrats)
+    #     plt.title("Wow, perfect!")
+    #     plt.axis('off')
+    #     plt.show()
 
 
 def excercise1(M):
