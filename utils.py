@@ -30,7 +30,6 @@ def create_new_color(red, green, blue):
 
 
 
-
 def convert_rgb_to_names(rgb_tuple):
     
     # a dictionary of all the hex and their respective names in css3
@@ -187,14 +186,14 @@ def move_square(M=np.float32([[1, 0, 0],
     newpoints = np.array(newpoints)
     plot_points(target, newpoints, target_color, default_color)
     if (target_color == 'tomato') or (target_color == 'limegreen'): 
-        if target == newpoints:
+        if (target == newpoints):
             congrats = plt.imread("/content/NordicWomenInSTEM/images/congratulations.jpg")
             plt.imshow(congrats)
             plt.title("Wow, perfect!")
             plt.axis('off')
             plt.show()
         
-    elif (target_color == default_color and target == newpoints):
+    if (target_color == default_color and target == newpoints):
         congrats = plt.imread("/content/NordicWomenInSTEM/images/congratulations.jpg")
         plt.imshow(congrats)
         plt.title("Wow, perfect!")
