@@ -74,9 +74,17 @@ def create_color(color, targetRed, targetGreen, targetBlue, red=255, green=255, 
 def create_yellow(red=255, green=255, blue=255):
     create_color("yellow", 255, 255, 0, red, green, blue)
 
-
 def create_light_blue(red=255, green=255, blue=255):
     create_color("light blue", 0, 255, 255, red, green, blue)
+
+def create_teal_blue(red=255, green=255, blue=255):
+    create_color("teal", 0, 90, 90, red, green, blue)
+
+def create_magenta_blue(red=255, green=255, blue=255):
+    create_color("teal", 200, 0, 100, red, green, blue)
+
+def create_yellow_blue(red=255, green=255, blue=255):
+    create_color("yellow blue", 255, 255, 0, red, green, blue)
 
 
 def create_purple(red=255, green=255, blue=255):
