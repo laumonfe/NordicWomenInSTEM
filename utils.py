@@ -11,6 +11,7 @@ global path_prefix
 path_prefix = ""
 
 def show_img(img_type, prefix):
+    global path_prefix
     path_prefix = prefix
     match img_type:
         case "scale":
