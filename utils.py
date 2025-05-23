@@ -54,7 +54,6 @@ def convert_rgb_to_names(rgb_tuple):
 
 def create_color(color, targetRed, targetGreen, targetBlue, red=255, green=255, blue=255):
     fontsize = 20
-    print(path_prefix)
     f, ax = plt.subplots(1, 2, figsize=(5, 2))
     f.suptitle("Can you make " + color + "?")
     r = targetRed
