@@ -7,7 +7,6 @@ from scipy.spatial import KDTree
 from webcolors import CSS3_HEX_TO_NAMES, hex_to_rgb
 
 path_collab = "/content/NordicWomenInSTEM/"
-global path_prefix
 path_prefix = ""
 
 def show_img(img_type, prefix):
