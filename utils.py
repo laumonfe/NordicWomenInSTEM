@@ -6,13 +6,20 @@ from scipy.spatial import ConvexHull
 from scipy.spatial import KDTree
 from webcolors import CSS3_HEX_TO_NAMES, hex_to_rgb
 
-def show_img(img_type): 
-    if img_type == "scale":
-        path1 = "/content/NordicWomenInSTEM/images/Height.png"
-        path2 = "/content/NordicWomenInSTEM/images/Width.png"
-    else:
-        path1 = "/content/NordicWomenInSTEM/images/moveX.png"
-        path2 = "/content/NordicWomenInSTEM/images/moveY.png"
+path_collab = "/content/NordicWomenInSTEM/"
+global path_prefix
+path_prefix = ""
+
+def show_img(img_type, prefix):
+    path_prefix = prefix
+    match img_type:
+        case "scale":
+            path1 = path_prefix + "images/Height.png"
+            path2 = path_prefix + "images/Width.png"
+        case _:
+            path1 = path_prefix + "images/moveX.png"
+            path2 = path_prefix + "images/moveY.png"
+
 
     img1 = cv2.imread(path1)
     img2 = cv2.imread(path2)
@@ -47,6 +54,7 @@ def convert_rgb_to_names(rgb_tuple):
 
 def create_color(color, targetRed, targetGreen, targetBlue, red=255, green=255, blue=255):
     fontsize = 20
+    print(path_prefix)
     f, ax = plt.subplots(1, 2, figsize=(5, 2))
     f.suptitle("Can you make " + color + "?")
     r = targetRed
@@ -64,7 +72,7 @@ def create_color(color, targetRed, targetGreen, targetBlue, red=255, green=255, 
     plt.show()
 
     if (red == r and green == g and blue == b):
-        congrats = plt.imread("/content/NordicWomenInSTEM/images/congratulations.jpg")
+        congrats = plt.imread(path_prefix +"images/congratulations.jpg")
         plt.imshow(congrats)
         plt.title("Wow, perfect! You got the exact color!")
         plt.axis('off')
@@ -195,14 +203,14 @@ def move_square(M=np.float32([[1, 0, 0],
     plot_points(target, newpoints, target_color, default_color)
     if (target_color == 'tomato') or (target_color == 'limegreen'): 
         if (np.array_equal(np.sort(target.flat), np.sort(newpoints.flat))):
-            congrats = plt.imread("/content/NordicWomenInSTEM/images/congratulations.jpg")
+            congrats = plt.imread(path_prefix +"images/congratulations.jpg")
             plt.imshow(congrats)
             plt.title("Wow, perfect!")
             plt.axis('off')
             plt.show()
         
     if (target_color == default_color and (np.array_equal(np.sort(target.flat), np.sort(newpoints.flat)))):
-        congrats = plt.imread("/content/NordicWomenInSTEM/images/congratulations.jpg")
+        congrats = plt.imread(path_prefix +"images/congratulations.jpg")
         plt.imshow(congrats)
         plt.title("Wow, perfect!")
         plt.axis('off')
