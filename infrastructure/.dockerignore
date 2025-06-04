@@ -1,0 +1,37 @@
+# Jupyter notebook deployment
+*.ipynb
+.ipynb_checkpoints
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Directories
+.vscode/
+.idea/
+.git/
+.github/
+
+# Specific files
+.gitignore
+README.md
+LICENSE
+*.md
